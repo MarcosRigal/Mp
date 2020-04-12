@@ -10,7 +10,7 @@ int ** reservarMemoria (int nFil, int nCol)
 {
 	int **matriz;
 	matriz = (int **)malloc (nFil*sizeof(int *));
-	for (int i=0;i<nCol;i++)
+	for (int i=0;i<nFil;i++)
 	{
 		matriz[i] = (int *) malloc (nCol*sizeof(int));
 	}
