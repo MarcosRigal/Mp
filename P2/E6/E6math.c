@@ -4,7 +4,7 @@
 */
 
 #include <stdlib.h>
-#include "E6math.h"
+#include "E6.h"
 
 
 int * minCol (int **matriz, int nFil, int nCol)

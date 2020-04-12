@@ -4,7 +4,7 @@
 */
 
 #include <stdlib.h>
-#include "E6memory.h"
+#include "E6.h"
 
 int ** reservarMemoria (int nFil, int nCol)
 {

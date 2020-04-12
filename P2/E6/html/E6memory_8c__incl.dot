@@ -6,5 +6,5 @@ digraph "E6memory.c"
   Node0 -> Node1 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node1 [label="stdlib.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
   Node0 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node2 [label="E6memory.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$E6memory_8h.html",tooltip="Cabecera de las funciones que interactuan con la memoria de la matriz. "];
+  Node2 [label="E6.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$E6_8h.html",tooltip="Fichero que incluye la cabecera de las funciones. "];
 }

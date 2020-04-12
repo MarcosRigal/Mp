@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include "E6inputoutput.h"
+#include "E6.h"
 
 void rellenaMatriz (int **matriz, int nFil, int nCol)
 {

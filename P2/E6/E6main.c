@@ -1,5 +1,5 @@
 /**
-	@file E6mai.c
+	@file E6main.c
 	@brief Este archivo almacena el main del programa correspondiente al ejercicio 6
 	@author Marcos Rivera Gavilán
 	@date 11/04/2020
@@ -7,9 +7,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
-#include "E6math.h"
-#include "E6memory.h"
-#include "E6inputoutput.h"
+#include "E6.h"
 
 /**
 	@fn void main ()
