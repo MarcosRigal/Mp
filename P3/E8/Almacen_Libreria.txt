@@ -1,0 +1,9 @@
+Las aventuras de bunini
+Bunini
+40.000000 40
+Programacion en C
+Byron Gottfried
+30.000000 15
+Don Quijote de la Mancha
+Miguel de Cervantes
+20.000000 11

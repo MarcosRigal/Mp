@@ -2,36 +2,39 @@
 #include <ctype.h>
 #include "E7funciones.h"
 
+int cuentaNumeros(char const *nombre)
+{
+	FILE *f;
+	f = fopen(nombre, "r");
+	char aux[256];
+	int contador=0;
+	if (fgets(aux,256,f)!=NULL || !feof(f))
+	{
+		do
+		{
+			contador++;
+		}while(fgets(aux,256,f)!=NULL);
+		fclose(f);
+		return contador;	
+	}
+}
+
 float mediaFichero(char const *nombre)
 {
-	float media=0, n=0,aux;
-	char c;
 	FILE *f;
 	if((f= fopen(nombre, "r"))== NULL)
 	{
 		printf("Error al abrir el archivo.\n");
 		return -1;
 	}
-	while((c=getc(f))!=EOF)
+	fclose(f);
+	float media=0, n=cuentaNumeros(nombre),aux;
+	f= fopen(nombre, "r");
+	char c;
+	for (int i = 0; i < n; ++i)
 	{
- 		if(isdigit(c))
- 		{
- 			aux = c-48;
- 			c=getc(f);
-			if(c!=EOF)
-			{
- 				if (isdigit(c))
- 				{
- 					media= media+ ((aux*10)+(c-48));
- 					n++;
- 				}
- 				else
- 				{
- 					media=media+aux;
- 					n++;
- 				}
- 			}
- 		}
+				fscanf(f, "%f%c", &aux, &c);
+				media=media+aux;
 	}
 	fclose(f);
 	return (media/n);

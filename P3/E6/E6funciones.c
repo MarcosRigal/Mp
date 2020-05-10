@@ -14,7 +14,7 @@ int rellenaFichero(char *nombre, int nNumeros, int menor, int mayor)
 	}
 	for (int i = 0; i < nNumeros; ++i)
 	{	
-		fprintf(f, "%d, ",((rand()%(aux))+menor));
+		fprintf(f, "%d\n",((rand()%(aux))+menor));
 	}
 	fclose(f);
 	return 0;
