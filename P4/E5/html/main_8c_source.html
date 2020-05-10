@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Pasatiempos: Fichero Fuente main.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Pasatiempos
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">main.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="main_8c.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ficheros_8h.html">ficheros.h</a>&quot;</span></div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="memoria_8h.html">memoria.h</a>&quot;</span></div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="crucigrama_8h.html">crucigrama.h</a>&quot;</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div><div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">   18</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>(){</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  <span class="comment">/* Comprueba si existe el fichero */</span></div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;   <a class="code" href="ficheros_8c.html#a2d89d07b8f95604ea4f0075d1bcf6c60">existeFichero</a>();</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;   <span class="comment">/* Carga el fichero */</span></div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;   <a class="code" href="ficheros_8c.html#aeb3ff26aa7ad3ad730c0a21f077b7a71">cargaFicheroBinario</a>();</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;   <span class="comment">/* Reserva memoria para el crucigrama */</span></div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;   <a class="code" href="memoria_8h.html#a164e3dde678c40316fe5772e9b3d9f81">reservaCrucigrama</a>();</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;   <span class="comment">/* Crea el crucigrama */</span></div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;   <a class="code" href="crucigrama_8c.html#afbaac9a15018259c187f87440adf2d57">creaCrucigrama</a>();</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;   <span class="comment">/* Imprime el crucigrama */</span></div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;   <a class="code" href="crucigrama_8c.html#a015e212913a17f28f872e183bd6b05b1">imprimeCrucigrama</a>(); </div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;   <span class="comment">/* Se librera la memoria */</span></div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;   <a class="code" href="liberaMemoria_8c.html#a78aaa7e8b25f96b9ac9015408d2cd354">liberaCrucigrama</a>();  </div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;      </div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;   <span class="keywordflow">return</span> 0;</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;}   </div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div><div class="ttc" id="crucigrama_8h_html"><div class="ttname"><a href="crucigrama_8h.html">crucigrama.h</a></div><div class="ttdoc">Prototipos de las funciones relacionadas con crucigramas. </div></div>
+<div class="ttc" id="main_8c_html_ae66f6b31b5ad750f1fe042a706a4e3d4"><div class="ttname"><a href="main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></div><div class="ttdeci">int main()</div><div class="ttdoc">Programa principal. </div><div class="ttdef"><b>Definition:</b> <a href="main_8c_source.html#l00018">main.c:18</a></div></div>
+<div class="ttc" id="ficheros_8c_html_aeb3ff26aa7ad3ad730c0a21f077b7a71"><div class="ttname"><a href="ficheros_8c.html#aeb3ff26aa7ad3ad730c0a21f077b7a71">cargaFicheroBinario</a></div><div class="ttdeci">void cargaFicheroBinario()</div><div class="ttdoc">Carga un fichero de binario. </div><div class="ttdef"><b>Definition:</b> <a href="ficheros_8c_source.html#l00020">ficheros.c:20</a></div></div>
+<div class="ttc" id="ficheros_8h_html"><div class="ttname"><a href="ficheros_8h.html">ficheros.h</a></div><div class="ttdoc">Prototipos de las funciones relacionadas con ficheros. </div></div>
+<div class="ttc" id="memoria_8h_html"><div class="ttname"><a href="memoria_8h.html">memoria.h</a></div><div class="ttdoc">Prototipos de las funciones relacionadas con memoria. </div></div>
+<div class="ttc" id="liberaMemoria_8c_html_a78aaa7e8b25f96b9ac9015408d2cd354"><div class="ttname"><a href="liberaMemoria_8c.html#a78aaa7e8b25f96b9ac9015408d2cd354">liberaCrucigrama</a></div><div class="ttdeci">void liberaCrucigrama()</div><div class="ttdoc">Libera la memorira del crucigrama. </div><div class="ttdef"><b>Definition:</b> <a href="liberaMemoria_8c_source.html#l00013">liberaMemoria.c:13</a></div></div>
+<div class="ttc" id="crucigrama_8c_html_afbaac9a15018259c187f87440adf2d57"><div class="ttname"><a href="crucigrama_8c.html#afbaac9a15018259c187f87440adf2d57">creaCrucigrama</a></div><div class="ttdeci">void creaCrucigrama()</div><div class="ttdoc">Crea un crucigrama. </div><div class="ttdef"><b>Definition:</b> <a href="crucigrama_8c_source.html#l00016">crucigrama.c:16</a></div></div>
+<div class="ttc" id="memoria_8h_html_a164e3dde678c40316fe5772e9b3d9f81"><div class="ttname"><a href="memoria_8h.html#a164e3dde678c40316fe5772e9b3d9f81">reservaCrucigrama</a></div><div class="ttdeci">void reservaCrucigrama()</div><div class="ttdoc">Reserva memoria para un crucigrama. </div><div class="ttdef"><b>Definition:</b> <a href="reservaMemoria_8c_source.html#l00012">reservaMemoria.c:12</a></div></div>
+<div class="ttc" id="ficheros_8c_html_a2d89d07b8f95604ea4f0075d1bcf6c60"><div class="ttname"><a href="ficheros_8c.html#a2d89d07b8f95604ea4f0075d1bcf6c60">existeFichero</a></div><div class="ttdeci">void existeFichero()</div><div class="ttdoc">Comprueba si existe un fichero. </div><div class="ttdef"><b>Definition:</b> <a href="ficheros_8c_source.html#l00012">ficheros.c:12</a></div></div>
+<div class="ttc" id="crucigrama_8c_html_a015e212913a17f28f872e183bd6b05b1"><div class="ttname"><a href="crucigrama_8c.html#a015e212913a17f28f872e183bd6b05b1">imprimeCrucigrama</a></div><div class="ttdeci">void imprimeCrucigrama()</div><div class="ttdoc">Imprime un crucigrama. </div><div class="ttdef"><b>Definition:</b> <a href="crucigrama_8c_source.html#l00012">crucigrama.c:12</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>
