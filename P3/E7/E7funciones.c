@@ -28,14 +28,19 @@ float mediaFichero(char const *nombre)
 		return -1;
 	}
 	fclose(f);
-	float media=0, n=cuentaNumeros(nombre),aux;
+	int aux, naux=0;
+	float media=0, n=cuentaNumeros(nombre);
 	f= fopen(nombre, "r");
 	char c;
 	for (int i = 0; i < n; ++i)
 	{
-				fscanf(f, "%f%c", &aux, &c);
-				media=media+aux;
+				fscanf(f, "%d%c", &aux, &c);
+				if(aux%2==0)
+				{	
+					media=media+aux;
+					naux++;
+				}
 	}
 	fclose(f);
-	return (media/n);
+	return (media/naux);
 }
