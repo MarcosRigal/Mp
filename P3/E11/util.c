@@ -1,18 +1,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "E11funciones.h"
+#include "util.h"
+#include "ficheros.h"
 
 int existeLibro(const char* nombre, char *titulo)
 {
 	FILE *f;
-	f = fopen(nombre, "rb");
+	f = abreLectura(nombre);
 	if(f==NULL)
 	{
 		return 0;
 	}
 	fclose(f);
-	f = fopen(nombre, "rb");
+	f = abreLectura(nombre);
 	libro aux;
 	while((fread(&aux, sizeof(libro), 1, f))==1)
 	{
@@ -29,7 +30,7 @@ int existeLibro(const char* nombre, char *titulo)
 void introducirNuevoLibro(const char* nombre)
 {
 	FILE *f;
-	f = fopen(nombre, "ab");
+	f = abreAdjuntar(nombre);
 	if(f==NULL)
 	{
 		printf("Error no se puede abrir el archivo.\n");
@@ -56,7 +57,7 @@ void introducirNuevoLibro(const char* nombre)
 			scanf("%f", &aux.precio);
 			printf("Introduzca el numero de unidades del libro\n");
 			scanf("%d", &aux.stock);
-			f = fopen(nombre, "ab");
+			f = abreAdjuntar(nombre);
 			fwrite(&aux, sizeof(libro), 1, f);
 			fclose(f);
 		break;
@@ -71,7 +72,7 @@ void introducirNuevoLibro(const char* nombre)
 			{
 				char titulo[100];
 				strcpy(titulo, aux.titulo);
-				f = fopen(nombre, "r+b");
+				f = abreEditar(nombre);
 				while((fread(&aux, sizeof(libro), 1, f))==1)
 				{
 					if (strcmp(aux.titulo, titulo)==0)
@@ -99,7 +100,7 @@ int numeroDeLibros(const char* nombre)
 {
 	int nLibros;
 	FILE *f;
-	f = fopen(nombre, "rb");
+	f = abreLectura(nombre);
 	if(f==NULL)
 	{
 		return 0;
@@ -113,7 +114,7 @@ int numeroDeLibros(const char* nombre)
 void imprimeLibros(const char* nombre, int nLibros)
 {
 	FILE *f;
-	f = fopen(nombre, "rb");
+	f = abreLectura(nombre);
 	if(f==NULL)
 	{
 		printf("Error no se puede abrir el archivo.\n");
@@ -140,7 +141,7 @@ void imprimeLibros(const char* nombre, int nLibros)
 int vendeLibro(const char* nombre, char *titulo, int unidades)
 {
 	FILE *f;
-	f = fopen(nombre, "r+b");
+	f = abreEditar(nombre);
 	libro aux;
 	while((fread(&aux, sizeof(libro), 1, f))==1)
 	{
@@ -184,13 +185,13 @@ int vendeLibro(const char* nombre, char *titulo, int unidades)
 int borraLibro(const char* nombre)
 {
 	FILE *f;
-	f = fopen(nombre, "rb");
+	f = abreLectura(nombre);
 	if(f==NULL)
 	{
 		return 0;
 	}
 	FILE *ftemp;
-	ftemp = fopen("temp.bin", "wb");
+	ftemp = abreNuevo("temp.bin");
 	libro aux;
 	while((fread(&aux, sizeof(libro), 1, f))==1)
 	{

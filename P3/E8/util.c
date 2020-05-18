@@ -1,12 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "E8funciones.h"
+#include "util.h"
+#include "ficheros.h"
 
 int existeLibro(const char* nombre, char *titulo)
 {
 	FILE *f;
-	f = fopen(nombre, "r");
+	f = abreLectura(nombre);
 	if(f==NULL)
 	{
 		return 0;
@@ -35,7 +36,7 @@ int existeLibro(const char* nombre, char *titulo)
 void introducirNuevoLibro(const char* nombre)
 {
 	FILE *f;
-	f = fopen(nombre, "a");
+	f = abreAdjuntar(nombre);
 	if(f==NULL)
 	{
 		printf("Error no se puede abrir el archivo.\n");
@@ -58,7 +59,7 @@ void introducirNuevoLibro(const char* nombre)
    		break;
 
 		case 1:
-			f = fopen(nombre, "a");
+			f = abreAdjuntar(nombre);
 			fputs(aux, f);
 			printf("Introduzca el nombre del autor\n");
 			fgets(aux, 256, stdin);
@@ -80,11 +81,11 @@ void introducirNuevoLibro(const char* nombre)
 			scanf("%d",&respuesta);
 			if (respuesta==1)
 			{
-				f = fopen(nombre, "r");
+				f = abreLectura(nombre);
 				char titulo[256];
 				strcpy(titulo, aux);
 				FILE *temp;
-				temp = fopen("temp.txt", "w");
+				temp = abreNuevo("temp.txt");
 				if (fgets(aux,256,f)!=NULL)
 				{
 					do
@@ -122,7 +123,7 @@ void introducirNuevoLibro(const char* nombre)
 int numeroDeLibros(const char* nombre)
 {
 	FILE *f;
-	f = fopen(nombre, "r");
+	f = abreLectura(nombre);
 	if(f==NULL)
 	{
 		return 0;
@@ -149,7 +150,7 @@ void imprimeLibros(const char* nombre, int nLibros)
 {
 	FILE *f;
 	char aux;
-	f = fopen(nombre, "r");
+	f = abreLectura(nombre);
 	libro *libros;
 	libros = (libro *) malloc(nLibros * sizeof(libro));
 	int i = 0;
@@ -180,9 +181,9 @@ int vendeLibro(const char* nombre, char *titulo,int unidades)
 	float precio;
 	int nUnidades;
 	FILE *f;
-	f = fopen(nombre, "r");
+	f = abreLectura(nombre);
 	FILE *temp;
-	temp = fopen("temp.txt", "w");
+	temp = abreNuevo("temp.txt");
 	if (fgets(aux,256,f)!=NULL)
 	{
 		do
@@ -238,9 +239,9 @@ void borraLibro(const char* nombre)
 	float precio;
 	int nUnidades;
 	FILE *f;
-	f = fopen(nombre, "r");
+	f = abreLectura(nombre);
 	FILE *temp;
-	temp = fopen("temp.txt", "w");
+	temp = abreNuevo("temp.txt");
 	if (fgets(aux,256,f)!=NULL)
 	{
 		do

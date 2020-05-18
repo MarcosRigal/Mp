@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "E11funciones.h"
+#include "util.h"
 int main(int argc, char const *argv[])
 {
 	system("clear");
@@ -32,8 +32,8 @@ int main(int argc, char const *argv[])
 		    case 1:
 		    	printf("Introduzca el titulo del libro que desea buscar:\n");
 		    	getchar();
-		    	char titulo[100];
-				fgets(titulo, 100, stdin);
+		    	char titulo[256];
+				fgets(titulo, 256, stdin);
 		    	int estado = existeLibro(argv[1], titulo);
 		    	switch(estado)
 		    	{    	
@@ -55,28 +55,29 @@ int main(int argc, char const *argv[])
 		    		break;
 
 		    	}
+
 		      break;
 
 		    case 2:
 		    	introducirNuevoLibro(argv[1]);
 		      break;
 
-		    case 3: ;
-		    	int nLibros = numeroDeLibros(argv[1]);
+		    case 3:
+		    	getchar();
+		       	int nLibros = numeroDeLibros(argv[1]);
 		    	switch(nLibros)
-		    	{
+		    	{    	
 		    		case 0:
 		    			printf("Error no existe el archivo de almacenamiento\n");
 						printf("Pulse enter para continuar...");
 			    		getchar();
-			    		getchar();
 		    		break;
+
 		     		default:
 				    	printf("Hay %d libros en stock.\n",  nLibros);
 						printf("Pulse enter para continuar...");
-			    		getchar();
-			    		getchar();	
-		  		}
+			    		getchar();		    	
+		    	}
 		      break;
 
 		    case 4:
@@ -97,10 +98,10 @@ int main(int argc, char const *argv[])
 		    	}
 		      break;
 		    case 5:
-		    	printf("Introduzca el titulo del libro que desea vender:\n");
+		      	printf("Introduzca el titulo del libro que desea vender:\n");
 		    	getchar();
-		    	char title[100];
-				fgets(title, 100, stdin);
+		    	char title[256];
+				fgets(title, 256, stdin);
 		    	int status = existeLibro(argv[1], title);
 		    	switch(status)
 		    	{    	
@@ -110,18 +111,17 @@ int main(int argc, char const *argv[])
 			    		getchar();
 		    		break;
 		    		case 1:
-		    			printf("No se puede vender, el libro pues este no se encuentra en stock\n");
+		    			printf("No se puede vender el libro pues no esta en stock\n");
 						printf("Pulse enter para continuar...");
 			    		getchar();
 		    		break;
 
 		    		case 2:
-		    			printf("¿Cuantas unidades del libro desea vender?\n");
+		    			printf("¿Cuatas unidades del libro desea vender?\n");
 		    			int unidades;
 		    			scanf("%d",&unidades);
-		    			getchar();
-						vendeLibro(argv[1], title, unidades);
-						printf("La venta se comletó con exito.\n");
+		    			vendeLibro(argv[1], title, unidades);
+						printf("La venta se comletó con exito.\n");			    		
 			    		printf("Pulse enter para continuar...");
 			    		getchar();
 		    		break;
@@ -129,22 +129,12 @@ int main(int argc, char const *argv[])
 		    	}
 		      break;
 
-		    case 6: ;
-		    	int state = borraLibro(argv[1]);
-		    	switch(state)
-		    	{    	
-		    		case 0:
-		    			printf("Error no existe el archivo de almacenamiento\n");
-						printf("Pulse enter para continuar...");
-			    		getchar();
-			    		getchar();
-		    		break;
-					default:	
-				     	printf("Borrado completado.\n");
-				     	printf("Pulse enter para continuar...");
-				     	getchar();
-				     	getchar();
-				}			  
+		    case 6:
+    			borraLibro(argv[1]);
+				printf("Borrado completado.\n");
+		     	printf("Pulse enter para continuar...");
+		     	getchar();
+		     	getchar();
 			  break;
 		    
 		    case 0:		    
