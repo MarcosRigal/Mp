@@ -9,9 +9,6 @@ int existeLibro(const char* nombre, char *titulo)
 	f = fopen(nombre, "rb");
 	if(f==NULL)
 	{
-		printf("Error no se puede abrir el archivo.\n");
-		printf("Pulse enter para salir\n");
-		getchar();
 		return 0;
 	}
 	fclose(f);
@@ -45,16 +42,58 @@ void introducirNuevoLibro(const char* nombre)
 	printf("Introduzca el título del libro\n");
 	getchar();
 	fgets(aux.titulo, 100, stdin);
-	printf("Introduzca el nombre del autor\n");
-	fgets(aux.autor, 50, stdin);
-	printf("Introduzca el precio del libro\n");
-	scanf("%f", &aux.precio);
-	printf("Introduzca el numero de unidades del libro\n");
-	scanf("%d", &aux.stock);
-	f = fopen(nombre, "ab");
-	fwrite(&aux, sizeof(libro), 1, f);
-	fclose(f);
+	int estado = existeLibro(nombre, aux.titulo);
+   	switch(estado)
+   	{    	
+		case 0:
+ 			printf("Error no existe el archivo de almacenamiento\n");
+   		break;
+
+		case 1:
+			printf("Introduzca el nombre del autor\n");
+			fgets(aux.autor, 50, stdin);
+			printf("Introduzca el precio del libro\n");
+			scanf("%f", &aux.precio);
+			printf("Introduzca el numero de unidades del libro\n");
+			scanf("%d", &aux.stock);
+			f = fopen(nombre, "ab");
+			fwrite(&aux, sizeof(libro), 1, f);
+			fclose(f);
+		break;
+   		case 2:
+			printf("El libro que desea añadir ya existe. ¿Desea añadir mas unidades?\n");
+			printf("Pulse 1 para añadir mas unidades.\n");
+			printf("Pulse 0 para volver al menu.\n");
+			int respuesta;
+			scanf("%d",&respuesta);
+			getchar();
+			if (respuesta==1)
+			{
+				char titulo[100];
+				strcpy(titulo, aux.titulo);
+				f = fopen(nombre, "r+b");
+				while((fread(&aux, sizeof(libro), 1, f))==1)
+				{
+					if (strcmp(aux.titulo, titulo)==0)
+					{
+						fseek(f, -(int)sizeof(libro), SEEK_CUR);
+						printf("Introduzca el numero de unidades que desea añadir:\n");
+						int nUds;
+						scanf("%d", &nUds);
+						getchar();
+						aux.stock= aux.stock+ nUds;
+						fwrite(&aux, sizeof(libro), 1, f);				
+						fflush(f);
+
+					}
+				}
+				fclose(f);
+			}
+   		break;
+   	}
+
 }
+
 
 int numeroDeLibros(const char* nombre)
 {
@@ -63,10 +102,7 @@ int numeroDeLibros(const char* nombre)
 	f = fopen(nombre, "rb");
 	if(f==NULL)
 	{
-		printf("Error no se puede abrir el archivo.\n");
-		printf("Pulse enter para salir\n");
-		getchar();
-		exit(-1);
+		return 0;
 	}
 	fseek(f, 0, SEEK_END);
 	nLibros = (ftell(f)/sizeof(libro));
@@ -74,7 +110,7 @@ int numeroDeLibros(const char* nombre)
 	return nLibros;
 }
 
-void imprimeLibros(const char* nombre)
+void imprimeLibros(const char* nombre, int nLibros)
 {
 	FILE *f;
 	f = fopen(nombre, "rb");
@@ -86,7 +122,6 @@ void imprimeLibros(const char* nombre)
 		exit(-1);
 	}
 	libro *libros;
-	int nLibros = numeroDeLibros(nombre);
 	libros = (libro *) malloc(nLibros * sizeof(libro));
 	fread(libros, sizeof(libro), nLibros, f);
 	for (int i = 0; i < nLibros; ++i)
@@ -146,10 +181,15 @@ int vendeLibro(const char* nombre, char *titulo, int unidades)
 	}
 }
 
-void borraLibro(const char* nombre)
+int borraLibro(const char* nombre)
 {
-	FILE *f, *ftemp;
+	FILE *f;
 	f = fopen(nombre, "rb");
+	if(f==NULL)
+	{
+		return 0;
+	}
+	FILE *ftemp;
 	ftemp = fopen("temp.bin", "wb");
 	libro aux;
 	while((fread(&aux, sizeof(libro), 1, f))==1)
@@ -162,5 +202,6 @@ void borraLibro(const char* nombre)
 	fclose(f);
 	remove(nombre);
 	fclose(ftemp);
-	rename("temp.bin", nombre);	
+	rename("temp.bin", nombre);
+	return 1;	
 }

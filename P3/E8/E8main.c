@@ -121,6 +121,7 @@ int main(int argc, char const *argv[])
 		    			int unidades;
 		    			scanf("%d",&unidades);
 		    			vendeLibro(argv[1], title, unidades);
+						printf("La venta se comletó con exito.\n");			    		
 			    		printf("Pulse enter para continuar...");
 			    		getchar();
 		    		break;

@@ -12,8 +12,8 @@ typedef struct
 int existeLibro(const char* nombre, char *titulo);
 void introducirNuevoLibro(const char* nombre);
 int numeroDeLibros(const char* nombre);
-void imprimeLibros(const char* nombre);
+void imprimeLibros(const char* nombre, int nLibros);
 int vendeLibro(const char* nombre, char *titulo, int unidades);
-void borraLibro(const char* nombre);
+int borraLibro(const char* nombre);
 
 #endif

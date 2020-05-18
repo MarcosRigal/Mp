@@ -61,18 +61,40 @@ int main(int argc, char const *argv[])
 		    	introducirNuevoLibro(argv[1]);
 		      break;
 
-		    case 3:
-		    	printf("Hay: %d libros en stock\n", numeroDeLibros(argv[1]));
-		      	printf("\nPulse enter para continuar...");
-			    getchar();
-			    getchar();
+		    case 3: ;
+		    	int nLibros = numeroDeLibros(argv[1]);
+		    	switch(nLibros)
+		    	{
+		    		case 0:
+		    			printf("Error no existe el archivo de almacenamiento\n");
+						printf("Pulse enter para continuar...");
+			    		getchar();
+			    		getchar();
+		    		break;
+		     		default:
+				    	printf("Hay %d libros en stock.\n",  nLibros);
+						printf("Pulse enter para continuar...");
+			    		getchar();
+			    		getchar();	
+		  		}
 		      break;
 
 		    case 4:
-		    	imprimeLibros(argv[1]);
-		    	printf("\nPulse enter para continuar...");
-			    getchar();
-			    getchar();
+				getchar();
+		       	int nLibro = numeroDeLibros(argv[1]);
+		    	switch(nLibro)
+		    	{    	
+		    		case 0:
+		    			printf("Error no existe el archivo de almacenamiento\n");
+						printf("Pulse enter para continuar...");
+			    		getchar();
+		    		break;
+
+		     		default:
+				    	imprimeLibros(argv[1], nLibro);		    		    	
+						printf("Pulse enter para continuar...");
+			    		getchar();
+		    	}
 		      break;
 		    case 5:
 		    	printf("Introduzca el titulo del libro que desea vender:\n");
@@ -107,12 +129,22 @@ int main(int argc, char const *argv[])
 		    	}
 		      break;
 
-		    case 6:
-		    	borraLibro(argv[1]);
-		     	printf("Borrado completado.\n");
-		     	printf("Pulse enter para continuar...");
-		     	getchar();
-		     	getchar();			  
+		    case 6: ;
+		    	int state = borraLibro(argv[1]);
+		    	switch(state)
+		    	{    	
+		    		case 0:
+		    			printf("Error no existe el archivo de almacenamiento\n");
+						printf("Pulse enter para continuar...");
+			    		getchar();
+			    		getchar();
+		    		break;
+					default:	
+				     	printf("Borrado completado.\n");
+				     	printf("Pulse enter para continuar...");
+				     	getchar();
+				     	getchar();
+				}			  
 			  break;
 		    
 		    case 0:		    
