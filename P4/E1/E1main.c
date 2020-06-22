@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include "E1funciones.h"
 
-int main(int argc, char const *argv[])
+int main()
 {
 	system("clear");
 	int max, seleccion;
