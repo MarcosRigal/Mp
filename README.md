@@ -1,4 +1,7 @@
-[![Mp](https://www.knowledgeplus.mu/assets/img/courses/pm.jpg)](https://www.gnu.org/software/gnu-c-manual/gnu-c-manual.html)
+<div align="center">
+    <img width="100%" src="https://www.knowledgeplus.mu/assets/img/courses/pm.jpg" alt="Mp">
+</div>
+
 # Instructions:
 The practices are organized as follows:
   
